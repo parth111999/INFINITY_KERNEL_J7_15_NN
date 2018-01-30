@@ -86,6 +86,13 @@ on boot
     # to improve allocation times
     # write /proc/sys/vm/min_free_kbytes 32768
     # write /proc/sys/vm/min_free_order_shift 1
+    
+#Private Mode
+    mkdir /mnt/shell/privatemode 0700 system system
+    mkdir /storage/Private 0000 system system
+    mkdir /data/privatemode 0770 system system
+    chown system system /data/privatemode
+    restorecon /data/privatemode    
 
 # SSWAP
     write /proc/sys/vm/swappiness 160
